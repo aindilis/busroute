@@ -1,0 +1,8 @@
+There are many ways to improve this software.
+
+First there are a lot of redundant data structures, and slow ones.
+   For instance, there is no standard mapping from location names to
+   location objects.
+Implement   plan   quality   cost   for  transfers   based   on   some
+   time/safety/annoyance function.
+Implement GPS stuff.

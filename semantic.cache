@@ -1,0 +1,16 @@
+;; Object busroute/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "busroute/"
+  :tables (list 
+   (semanticdb-table "Makefile"
+    :major-mode 'makefile-mode
+    :tags '(("SYSNAME" variable (:default-value ("busroute")) nil [21 38]) ("configure" function (:arguments ("configure-stamp")) nil [39 67]) ("configure-stamp" function nil nil [67 108]) ("build" function (:arguments ("build-stamp")) nil [108 128]) ("build-stamp" function (:arguments ("configure-stamp")) nil [128 178]) ("clean" function nil nil [178 218]) ("install" function nil nil [218 363]))
+    :file "Makefile"
+    :pointmax 401
+    :unmatched-syntax 'nil
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0beta3"
+  :semanticdb-version "2.0beta3"
+  )

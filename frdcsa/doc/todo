@@ -1,0 +1,5 @@
+Is it a normal day or off service day.  Remember holidays.
+If worse comes to worse, just use this website to obtain street location translations, if possible.
+http://terraworld.isi.edu/Geocode/Service1.asmx/Geocode?streetaddress=5000+W+Forbes&city=Pittsburgh&state=PA&zipstr=15213
+use the libgeo-coordinates-utm-perl perl module to do calculations with it.
+Find a way to display it?  use roadnav?

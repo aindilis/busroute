@@ -1,0 +1,9 @@
+	Made  some changes  of uncertain  value.  Skipped  sorting  of all
+	route segments,  and just made  sort happen dynamically,  but take
+	less time, by only sorting amongst routes departing routes leaving
+	within  a  time range.   This  way  we do  not  have  to sort  all
+	departing route segments, which decreases run time.  However, this
+	mechanism is not currently full proof since it would seem to screw
+	departures leaving  more than  2 hours from  now.  This  should be
+	adjusted to the current time  cutoff instead.  Then it may work as
+	an optimization.

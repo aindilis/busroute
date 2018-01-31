@@ -1,0 +1,47 @@
+# pseudocode for new busroute trip algorithm
+
+my $time = "";
+my ($l1, $l2) = ("","");
+
+sub TripRoute {
+  my $tr = shift;
+  my @solutions;
+  foreach my $t ($tr->EndLoc->DepartingTrips) {
+    foreach $seg $t->After($l1,$time) {
+      if ($seg->EndLoc eq $l2) {
+	$ntr = BR::TripRoute->new(Body => $tr,
+			       Head => $t,
+			       EndLoc => $seg->EndLoc,
+			       EndTime => $seg->EndTime);
+	push @solutions, $ntr;
+      }
+    }
+  }
+  if (!@solutions) {
+    # do more depth this time
+    
+  }
+}
+
+
+package BR::TripRoute;
+
+@it = qw / Trip StartLoc EndLoc StartTime EndTime Duration Length /;
+
+########################################################################
+
+
+push @q, map TripRoute->new(Spars => [$_]), $l1->OutgoingSpars($time);
+
+while (@q) {
+  $route = shift @q;
+  $spar = $route->Spar;
+  if ($spar->ContainsLocation($l2)) {
+    # this is a valid plan, return our route for comparison
+  } else {
+    if (! $spar->Marked) {
+      $spar->Marked(1);
+      push @q, map TripRoute->new(Spars => [$route->Spars,$_]), $spar->OutgoingSpars;
+    }
+  }
+}

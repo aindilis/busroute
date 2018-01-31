@@ -1,0 +1,181 @@
+<html>
+<head>
+<title>BusRoute: Command Line Bus Planner. </title>
+</head>
+<body>
+<h1>BusRoute: Command Line Bus Planner. </h1>
+
+<img src="busroute.jpg" width=200 height=200><p>
+
+<b>Overview:</b><p>
+
+This is  a bus  scheduler in the  sense that  you give it  a <em>start
+address</em>, a <em>destination address</em>, and a <em>time</em>, and
+it returns a robust bus plan to get you there ASAP.  It is also useful
+as a transportation planning module for the Verber/SHOPS complex.<p>
+
+The system further aims to integrate with a map routing system such as
+the open  source Roadmap  or TMRS systems,  to provide the  ability to
+calculate the quickest plan to reach a given location.<p>
+
+Its really funny  that everyone seems to agree that  the bus system is
+useful.   In fact,  the bus  system  is practically  the most  useless
+system I have written.  However, it has the greatest perceived need by
+others.  Writing such  a system goes entirely against  the approach of
+the FRDCSA.  The reason  I wrote it is that I don't  have access to my
+servers,  and hence  my real  development environment,  so  I couldn't
+really accomplish anything since all the problems I have solved in the
+past can't assist me.  I was  sick of spending hours waiting for buses
+that weren't  showing according to my  poor mental bus  schedule, so I
+thought I would  simply provide a bus planning module  to Verber so as
+to more  efficiently utilize that  time, given the expectation  that I
+would use it and so would others.<p>
+
+This  just shows  that  people can't  see  what's in  their long  term
+interest,  since this system  has only  modest shortest  term benefit.
+I'm only writing  it to function properly with my  long term plans, as
+sort  of a  diversion.   Yet, I've  gotten  the most  interest out  of
+EVERYONE in this  system.  Of course I'm not  going to convince anyone
+with these  arguments, so I should  start working on Verber  so that I
+can accomplish  more of my  short term goals  in pursuit of  my longer
+term goals  to create argumentative reasoners that  will refute common
+fallacies much easier. <p>
+
+<b>Example:</b><p>
+
+<pre>
+~/myfrdcsa/codebases/busroute $ ./busroute Pittsburgh.raw
+Loading data...
+250/20217 500/20217 750/20217 1000/20217 1250/20217 1500/20217
+1750/20217 2000/20217 2250/20217 2500/20217 2750/20217 3000/20217
+3250/20217 3500/20217 3750/20217 4000/20217 4250/20217 4500/20217
+4750/20217 5000/20217 5250/20217 5500/20217 5750/20217 6000/20217
+6250/20217 6500/20217 6750/20217 7000/20217 7250/20217 7500/20217
+7750/20217 8000/20217 8250/20217 8500/20217 8750/20217 9000/20217
+9250/20217 9500/20217 9750/20217 10000/20217 10250/20217 10500/20217
+10750/20217 11000/20217 11250/20217 11500/20217 11750/20217
+12000/20217 12250/20217 12500/20217 12750/20217 13000/20217
+13250/20217 13500/20217 13750/20217 14000/20217 14250/20217
+14500/20217 14750/20217 15000/20217 15250/20217 15500/20217
+15750/20217 16000/20217 16250/20217 16500/20217 16750/20217
+17000/20217 17250/20217 17500/20217 17750/20217 18000/20217
+18250/20217 18500/20217 18750/20217 19000/20217 19250/20217
+19500/20217 19750/20217 20000/20217
+
+Creating adjacency matrix...
+Selecting locations...
+Please enter start location regex:
+> forbes
+(forbes)
+0) Forbes Ave. AT Morewood (Far Side)
+1) Forbes Ave. OPP Craig
+2) Stevenson St. AT Forbes
+3) Craft Ave. AT Forbes (Near Side)
+4) Forbes Ave. AT Shady
+5) Forbes Ave. AT Bouquet (Far Side)
+6) Craig St. AT Forbes
+7) Forbes Ave. AT Delray
+8) Forbes Ave. AT Murray (Far Side)
+9) Forbes Ave. BTWN Denniston & Shady
+10) Halket St. AT Forbes
+11) Forbes Ave. AT Bigelow (Schenley Dr)
+12) Forbes Ave. AT Braddock
+13) Stanwix St. AT Forbes
+14) Forbes Ave. AT Braddock (Far Side)
+15) Murray Ave. AT Forbes
+16) Forbes Ave. AT Carnegie Mellon (Morewood)
+17) Forbes Ave. AT Wood
+18) Forbes Ave. AT Stanwix
+19) Forbes Ave. AT Craig
+20) Forbes Ave. AT Bouquet
+21) Forbes Ave. AT Braddock-No Stop
+22) Forbes Ave. AT Murray
+23) Forbes Ave. AT Atwood (Children's Hosp)
+24) Forbes Ave. AT Halket (Magee Hospital)
+25) Stanwix AT Forbes-Time Point
+> 16
+(16)
+Please enter end location regex:
+> murray
+(murray)
+0) Murray Ave. AT Hazelwood
+1) Forbes Ave. AT Murray (Far Side)
+2) Murray Ave. AT Forbes
+3) Murray Ave. AT Hazelwood (Far Side)
+4) Forbes Ave. AT Murray
+> 4
+(4)
+Finding best routes...
+Please enter time:
+> 1:15p
+(1:15p)
+Best routes are:
+(ROUTE
+	(:STARTLOC	Forbes Ave. AT Carnegie Mellon (Morewood))
+	(:ENDLOC	Forbes Ave. AT Murray)
+	(:STARTTIME	1:46p)
+	(:ENDTIME	6:22p)
+	(:DURATION	4:37)
+	(:PLAN
+		(BOARD	056U Weekdays O	1:46p	Forbes Ave. AT Carnegie Mellon (Morewood))
+		(EXIT	056U Weekdays O	1:53p	Wightman St. AT Beacon)
+		(BOARD	067H Weekdays I	2:13p	Wightman St. AT Beacon)
+		(EXIT	067H Weekdays I	2:30p	Diamond St. OPP Boyd)
+		(BOARD	0501 Weekdays O	2:30p	Diamond St. OPP Boyd)
+		(STAY	0501 Weekdays O	2:38p	Forbes Ave. AT Stanwix)
+		(STAY	0501 Weekdays O	2:50p	Ridge Ave. OPP Brighton (CCAC))
+		(STAY	0501 Weekdays O	2:52p	Western Ave. AT Allegheny)
+		(EXIT	0501 Weekdays O	3:03p	Island Ave. AT Beaver)
+		(BOARD	0501 Weekdays I	3:12p	Island Ave. AT Beaver)
+		(STAY	0501 Weekdays I	3:19p	Western Ave. AT Allegheny (Far Side))
+		(STAY	0501 Weekdays I	3:21p	Brighton Rd. AT Ridge (CCAC))
+		(EXIT	0501 Weekdays I	3:33p	6th St. AT Liberty)
+		(BOARD	0500 Weekdays O	3:39p	6th St. AT Liberty)
+		(STAY	0500 Weekdays O	3:45p	5th Ave. AT Smithfield)
+		(STAY	0500 Weekdays O	3:48p	5th Ave. AT 6th)
+		(STAY	0500 Weekdays O	3:58p	5th Ave. AT Oakland)
+		(EXIT	0500 Weekdays O	4:03p	5th Ave. AT Craig)
+		(BOARD	071C Weekdays I	4:12p	5th Ave. AT Craig)
+		(STAY	071C Weekdays I	4:15p	5th Ave. AT Bigelow (Pitt))
+		(EXIT	071C Weekdays I	4:17p	5th Ave. OPP Atwood (Children's Hosp))
+		(BOARD	061C Weekdays I	4:53p	5th Ave. OPP Atwood (Children's Hosp))
+		(EXIT	061C Weekdays I	5:06p	Forbes Ave. AT Halket (Magee Hospital))
+		(BOARD	061C Weekdays O	5:06p	Forbes Ave. AT Halket (Magee Hospital))
+		(EXIT	061C Weekdays O	5:10p	Forbes Ave. AT Bouquet (Far Side))
+		(BOARD	061C Weekdays O	6:10p	Forbes Ave. AT Bouquet (Far Side))
+		(STAY	061C Weekdays O	6:13p	Forbes Ave. AT Bouquet)
+		(STAY	061C Weekdays O	6:17p	Forbes Ave. OPP Craig)
+		(EXIT	061C Weekdays O	6:22p	Forbes Ave. AT Murray)
+	)
+)
+
+Please enter start location regex:
+>
+</pre>
+
+Perhaps you noticed that the  plan is rather ridiculous.  This appears
+to  be  due  to the  brittleness  in  the  system  since we  have  not
+incorporated walking movements or  more detailed bus stop information.
+We also  haven't handled many cases properly,  resulting in propobable
+information  loss.   So it  doesn't  seem to  be  a  problem with  the
+algorithm.   I  made  up   some  crappy  algorithm  with  some  flawed
+assumptions which does pretty well, I implemented Dijkstra's algorithm
+with some bugs, and  plan to move to A* since this  appears to be much
+more efficient with  sparse matrix data.  It has been  a while since I
+have done  algorithms, so I seem  rather inept.  Although  I coded the
+entire system in one night.<p>
+
+This software aims to improve our ability to reason with the objective
+consequeunces of our actions, which is of course necessary in order to
+act morally and ethically.<p>
+
+So  the possiblity  of incorporating  plans which  are very  robust is
+something we should certainly do  here since this improves the results
+and utility  of any planning  process, and is  in a certain  sense the
+entire reason we wish to do this.<p>
+
+<address>
+<a href="mailto:adougher9@yahoo.com">Debian User</a>
+</address>
+</body>
+</html
